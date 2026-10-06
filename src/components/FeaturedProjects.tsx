@@ -21,7 +21,7 @@ export default function FeaturedProjects() {
             </p>
 
             <h2 className="text-4xl font-medium tracking-[-0.04em] md:text-6xl">
-              Things I&apos;ve built.
+              Selected Work.
             </h2>
           </div>
 

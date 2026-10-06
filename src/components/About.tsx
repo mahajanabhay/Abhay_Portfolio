@@ -27,9 +27,9 @@ export default function About() {
             transition={{ duration: 0.7 }}
           >
             <p className="text-3xl font-medium leading-[1.2] tracking-[-0.03em] md:text-5xl">
-              I&apos;m interested in the space between{" "}
+              I&apos;like building things{" "}
               <span className="text-neutral-400">
-                technology, people, and ideas.
+                from scratch.
               </span>
             </p>
 
@@ -40,10 +40,11 @@ export default function About() {
               </p>
 
               <p>
-                My work has taken me through Generative AI, RAG systems,
-                conversational AI, web applications, and machine learning.
-                Along the way, I&apos;ve become increasingly interested in
-                building products rather than simply building features.
+                My background is in Artificial Intelligence and Machine Learning, but I&apos;m most interested 
+                in turning technology into things people can actually use. I&apos;ve worked with Generative AI,
+                RAG, conversational AI and web applications, and I enjoy taking an idea from a rough concept 
+                to a working product.Right now, I&apos;m exploring new ideas across AI, software and product development,
+                trying to understand which problems are worth solving and what I can build around them.
               </p>
 
               <p>
@@ -83,7 +84,7 @@ export default function About() {
               Currently
             </p>
             <p className="mt-2 text-lg">
-              Building Gradly
+              EXPLORING AI × PRODUCT IDEAS
             </p>
           </div>
 

@@ -26,11 +26,14 @@ export default function CTA() {
           </h2>
 
           <a
-            href="mailto:your-email@example.com"
-            className="mt-12 inline-flex items-center gap-3 rounded-full bg-black px-7 py-4 text-sm text-white transition-transform hover:scale-105"
+            href="mailto:abhaymahajan097@gmail.com"
+            className="mt-12 inline-flex items-center gap-3 rounded-full bg-black px-7 py-4 text-sm font-medium text-white transition-all duration-300 hover:bg-[#ff5c35] hover:scale-105"
           >
             GET IN TOUCH
-            <ArrowUpRight size={17} />
+            <ArrowUpRight 
+              size={17} 
+              className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+            />
           </a>
         </motion.div>
 

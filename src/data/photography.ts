@@ -11,14 +11,14 @@ export const photos: Photo[] = [
     src: "/photography/hero.jpg",
     title: "Into the Wild",
     location: "Himachal Pradesh",
-    year: "2026",
+    year: "2025",
     orientation: "landscape",
   },
   {
     src: "/photography/photo-02.jpg",
     title: "Quiet Details",
     location: "India",
-    year: "2026",
+    year: "2025",
     orientation: "portrait",
   },
   {

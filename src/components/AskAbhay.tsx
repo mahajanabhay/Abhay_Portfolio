@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const suggestions = [
   "What has Abhay built?",
-  "Tell me about Gradly",
+  "Tell me about Clarix",
   "What did he do at CoRover?",
   "What technologies does he use?",
 ];
@@ -104,7 +104,7 @@ function useTypewriter(text: string, speed = 12) {
 
             <p className="max-w-2xl text-xl leading-relaxed text-neutral-600 md:text-2xl">
               Ask about my projects, experience, technologies,
-              photography, or what I&apos;m currently building.
+              photography, or what I&apos;m currently exploring.
             </p>
 
             {/* Input */}

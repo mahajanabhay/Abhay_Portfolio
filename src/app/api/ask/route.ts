@@ -15,9 +15,7 @@ function includesAny(text: string, words: string[]) {
 function getAnswer(question: string) {
   const q = normalize(question);
 
-  /*
-   * ABOUT
-   */
+  // ABOUT
   if (
     includesAny(q, [
       "who is abhay",
@@ -29,9 +27,7 @@ function getAnswer(question: string) {
     return `${knowledge.about.name} is an ${knowledge.about.role}. He is based in ${knowledge.about.location} and graduated in 2026 with a B.Tech in Artificial Intelligence and Machine Learning from Symbiosis Institute of Technology, Pune.`;
   }
 
-  /*
-   * EDUCATION
-   */
+  // EDUCATION
   if (
     includesAny(q, [
       "education",
@@ -45,9 +41,7 @@ function getAnswer(question: string) {
     return knowledge.about.education;
   }
 
-  /*
-   * COROVER
-   */
+  // COROVER
   if (
     includesAny(q, [
       "corover",
@@ -59,52 +53,65 @@ function getAnswer(question: string) {
   ) {
     const experience = knowledge.experience[0];
 
-    return `At ${experience.company}, Abhay worked as a ${experience.role} during ${experience.period}. ${experience.description}`;
+    return `At ${experience.company}, Abhay worked as a ${experience.role} from ${experience.period}. ${experience.description}`;
   }
 
-  /*
-   * GRADLY
-   */
+  // CLARIX
   if (
     includesAny(q, [
-      "gradly",
-      "student startup",
-      "student platform",
-      "student project",
-    ])
-  ) {
-    const project = knowledge.projects.find(
-      (project) => project.name === "Gradly"
-    );
-
-    return `${project?.name} is ${project?.description} It is currently ${project?.status.toLowerCase()}.`;
-  }
-
-  /*
-   * SCHOLARLYAI
-   */
-  if (
-    includesAny(q, [
-      "scholarlyai",
-      "scholarly",
-      "study assistant",
+      "clarix",
+      "study platform",
+      "ai study platform",
       "study app",
-      "study project",
-      "rag project",
+      "ai tutor",
+      "adaptive quiz",
     ])
   ) {
     const project = knowledge.projects.find(
-      (project) => project.name === "ScholarlyAI"
+      (project) => project.name === "Clarix"
     );
 
-    return `${project?.name} is ${project?.description} Technologies include ${project?.technologies.join(
-      ", "
-    )}.`;
+    return `${project?.name} is ${project?.description} Abhay built it as the ${project?.role}. ${project?.details}`;
   }
 
-  /*
-   * TECHNOLOGIES
-   */
+  // AGENTIC CHATBOT
+  if (
+    includesAny(q, [
+      "agentic chatbot",
+      "agentic chat bot",
+      "chatbot",
+      "agentic ai",
+      "agents",
+      "agent",
+      "tool use",
+      "function calling",
+    ])
+  ) {
+    const project = knowledge.projects.find(
+      (project) => project.name === "Agentic ChatBot"
+    );
+
+    return `${project?.name} is ${project?.description} ${project?.details}`;
+  }
+
+  // HEALTH PROJECT
+  if (
+    includesAny(q, [
+      "health prediction",
+      "health project",
+      "patent",
+      "health ai",
+      "prediction system",
+    ])
+  ) {
+    const project = knowledge.projects.find(
+      (project) => project.name === "AI Health Prediction System"
+    );
+
+    return `${project?.name} is ${project?.description} Abhay worked on it as a ${project?.role}.`;
+  }
+
+  // TECHNOLOGIES / SKILLS
   if (
     includesAny(q, [
       "technology",
@@ -115,24 +122,15 @@ function getAnswer(question: string) {
       "stack",
       "programming",
       "framework",
+      "what does abhay use",
     ])
   ) {
-    const technologies = new Set<string>();
+    const skills = knowledge.skills;
 
-    knowledge.projects.forEach((project) => {
-      project.technologies.forEach((technology) => {
-        technologies.add(technology);
-      });
-    });
-
-    return `Some technologies Abhay has worked with include ${Array.from(
-      technologies
-    ).join(", ")}. His work also includes Generative AI, RAG, LLM applications, and agentic workflows.`;
+    return `Abhay works with Python, JavaScript, TypeScript, Next.js, React, FastAPI, PostgreSQL, Docker, LangChain, RAG, agentic workflows, machine learning, and Generative AI technologies.`;
   }
 
-  /*
-   * PHOTOGRAPHY
-   */
+  // PHOTOGRAPHY
   if (
     includesAny(q, [
       "photography",
@@ -146,9 +144,7 @@ function getAnswer(question: string) {
     return `${knowledge.photography.description} His photography work is shared through ${knowledge.photography.handle}.`;
   }
 
-  /*
-   * AI
-   */
+  // AI
   if (
     includesAny(q, [
       "ai",
@@ -157,15 +153,12 @@ function getAnswer(question: string) {
       "genai",
       "llm",
       "rag",
-      "agent",
     ])
   ) {
-    return "Abhay works across AI/ML and Generative AI, with experience in RAG, LLM applications, conversational AI, and agentic workflows. ScholarlyAI is one of his projects in this space, while his GenAI internship at CoRover.ai gave him practical experience building AI applications.";
+    return "Abhay works across AI/ML and Generative AI, with experience in RAG, LLM applications, conversational AI, and agentic workflows. His work includes Clarix, an AI study platform, and an Agentic ChatBot exploring tool use and multi-step AI workflows.";
   }
 
-  /*
-   * PROJECTS
-   */
+  // PROJECTS
   if (
     includesAny(q, [
       "project",
@@ -178,15 +171,10 @@ function getAnswer(question: string) {
   ) {
     return `Abhay's featured projects include ${knowledge.projects
       .map((project) => project.name)
-      .join(
-        " and "
-      )}. He also has experience building Generative AI and web applications.`;
+      .join(", ")}. His work spans AI education, agentic AI, machine learning, and applied AI research.`;
   }
 
-  /*
-   * FALLBACK
-   */
-  return "I know a few things about Abhay's work. Try asking about his projects, GenAI experience, education, technologies, Gradly, ScholarlyAI, CoRover.ai, or photography.";
+  return "I know a few things about Abhay's work. Try asking about his projects, GenAI experience, education, technologies, Clarix, Agentic ChatBot, CoRover.ai, the AI Health Prediction System, or photography!";
 }
 
 export async function POST(request: Request) {
@@ -195,44 +183,34 @@ export async function POST(request: Request) {
 
     const question = body?.question;
 
-    if (question.length > 300) {
+    if (typeof question !== "string" || !question.trim()) {
       return NextResponse.json(
-        {
-          error: "Question is too long.",
-        },
-        {
-          status: 400,
-        }
+        { error: "Question is required." },
+        { status: 400 }
       );
     }
 
-    if (
-      typeof question !== "string" ||
-      !question.trim()
-    ) {
+    if (question.length > 300) {
       return NextResponse.json(
-        {
-          error: "Question is required.",
-        },
-        {
-          status: 400,
-        }
+        { error: "Question is too long." },
+        { status: 400 }
       );
     }
 
     const answer = getAnswer(question);
 
-    return NextResponse.json({
-      answer,
-    });
+    return NextResponse.json(
+      { answer },
+      {
+        headers: {
+          "Cache-Control": "no-store",
+        },
+      }
+    );
   } catch {
     return NextResponse.json(
-      {
-        error: "Something went wrong.",
-      },
-      {
-        status: 500,
-      }
+      { error: "Something went wrong." },
+      { status: 500 }
     );
   }
 }
