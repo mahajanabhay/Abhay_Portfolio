@@ -14,8 +14,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-[#f5f5f2]/85 backdrop-blur-md">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
         <a
           href="#top"
           className="text-sm font-semibold tracking-[-0.02em]"
@@ -39,7 +39,7 @@ export default function Navbar() {
             href="/ABHAY_MAHAJAN_RESUME.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-neutral-900 px-5 py-2 text-sm transition-all hover:bg-black hover:text-white"
+            className="group rounded-full border border-neutral-900 px-5 py-2 text-sm font-medium text-neutral-900 transition-all duration-300 hover:bg-[#ff5c35] hover:text-white hover:border-[#ff5c35]"
           >
             Resume
           </a>
@@ -56,7 +56,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-neutral-200 bg-[#f5f5f2] px-6 py-8 md:hidden">
+        <div className="border-t border-black/5 bg-[#f5f5f2] px-6 py-8 md:hidden">
             <div className="flex flex-col">
 
             {links.map((link, index) => (
